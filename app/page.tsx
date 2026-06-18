@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { getTodos } from "@/lib/todos";
 interface Itodo {
   userId: number;
   id: number;
@@ -8,9 +8,8 @@ interface Itodo {
 }
 
 export default async function Home() {
-  const { data } = await axios.get(
-    "https://jsonplaceholder.typicode.com/todos",
-  );
+  // const { data } = await getTodos();
+  const { data } = await axios.get("http://localhost:3000/api/todos");
 
   console.log(data);
   return (
